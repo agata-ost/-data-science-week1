@@ -1,1 +1,2 @@
-i learnt how to make a git account
+I learnt how to make a git account.
+I want to know how to see this in Git.
