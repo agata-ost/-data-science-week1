@@ -52,7 +52,7 @@ mosquito_egg_data_step1 <- mosquito_egg_data |>
   select(female_id, age_days, body_mass_mg, site, collection_date, collector, treatment, eggs_laid, eggs_hatched, everything(mosquito_egg_data))
 #try 2
 mosquito_egg_data_step1 |>
-  filter(if_any(everything(mosquito_egg_data_step1)) is)
+  filter(if_any(eggs_laid, eggs_hatched, is.na))
   
   # Verify it worked:
 #did not work, going to try again.
