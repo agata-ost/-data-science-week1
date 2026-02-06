@@ -40,13 +40,15 @@ mosquito_egg_raw |>
 
 
 # FIX 1: [Issue description] ====
-
+# Missing data in dataset
 # Show the problem:
 # [Code to demonstrate issue exists]
 
 
 # Fix it:
-mosquito_egg_data_step1 <- mosquito_egg_raw |>
+mosquito_egg_data_step1 <- mosquito_egg_data |>
+  filter(if_any(everything(), is.na)) |>
+  select(female_id, age_days, body_mass_mg, site, collection_date, collector, treatment, eggs_laid, eggs_hatched, everything(mosquito_egg_data))
   # YOUR CODE HERE
   
   
