@@ -12,18 +12,14 @@ library(skimr)
 mosquito_egg_raw <- read_csv(here( "week1", "data", "mosquito_egg_data.csv"),
                              name_repair = janitor::make_clean_names)
 
-# Basic overview ====
+#basic data ovrview
 glimpse(mosquito_egg_raw)
 summary(mosquito_egg_raw)
 skim(mosquito_egg_raw)
-
-# React table====
-# view interactive table of data
+#look at table
 view(mosquito_egg_raw)
 
-
-# Counts by site and treatment====
-
+#group data
 mosquito_egg_raw |> 
   group_by(site, treatment) |> 
   summarise(n = n())
