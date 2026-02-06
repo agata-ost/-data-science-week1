@@ -51,13 +51,17 @@ mosquito_egg_data_step1 <- mosquito_egg_data |>
   filter(if_any(everything(), is.na)) |>
   select(female_id, age_days, body_mass_mg, site, collection_date, collector, treatment, eggs_laid, eggs_hatched, everything(mosquito_egg_data))
 #try 2
-mosquito_egg_data_step1 |>
-  filter(if_any(eggs_laid, eggs_hatched, is.na))
+
   
+  mosquito_egg_data |>
+  filter(!if_any(c(eggs_laid, eggs_hatched), is.na))
+#WORKS BUT NEED TO CHECK IF IT DID WORK PROPERLY RAN OUT OF TIME
+  
+drop_na()
   # Verify it worked:
 #did not work, going to try again.
   # [Code to check change happened]
-glimpse(mosquito_egg_data_step1)
+glimpse(mosquito_egg_data_step2)
   
   # What changed and why it matters:
   # [2-3 sentences explaining consequences]
@@ -72,7 +76,51 @@ glimpse(mosquito_egg_data_step1)
 # Fix it:
 mosquito_egg_data_step2 <- mosquito_egg_data_step1 |>
   # YOUR CODE
-  
+  # Show the problem:
+  mosquito_egg_raw |>  
+  distinct(site)
+
+mosquito_egg_raw |>  
+  distinct(treatment)
+
+# Fix it:
+mosquito_egg_data_step1 <- mosquito_egg_raw |>
+  # change the site labels to make them consistent
+  mutate(site = case_when(
+    site == "Site A" ~ "Site_A",
+    site == "Site-A" ~ "Site_A",
+    site == "site_a" ~ "Site_A",
+    site == "Site B" ~ "Site_B",
+    site == "site_b" ~ "Site_B",
+    site == "Site-B" ~ "Site_B",
+    site == "Site C" ~ "Site_C",
+    site == "site_c" ~ "Site_C",
+    site == "Site-C" ~ "Site_C",
+    .default = as.character(site)
+  )
+  )
+
+mosquito_egg_data_step1_next <- mosquito_egg_data_step1 |>
+  # change the treatment labels to make them consistent
+  mutate(treatment = case_when(
+    treatment == "control" ~ "Control",
+    treatment == "CONTROL" ~ "Control",
+    treatment == "LOW_DOSE" ~ "Low_dose",
+    treatment == "low_dose" ~ "Low_dose",
+    treatment == "MEDIUM_DOSE" ~ "Medium_dose",
+    treatment == "medium_dose" ~ "Medium_dose",
+    treatment == "HIGH_DOSE" ~ "High_dose",
+    treatment == "high_dose" ~ "High_dose",
+    .default = as.character(treatment)
+  )
+  )
+
+# Verify it worked:
+mosquito_egg_data_step1_next |>  
+  distinct(site) 
+
+mosquito_egg_data_step1_next |>
+  distinct(treatment)
   
   # Verify it worked:
   # [Code]
