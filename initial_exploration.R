@@ -46,15 +46,18 @@ mosquito_egg_raw |>
 
 
 # Fix it:
+#try 1
 mosquito_egg_data_step1 <- mosquito_egg_data |>
   filter(if_any(everything(), is.na)) |>
   select(female_id, age_days, body_mass_mg, site, collection_date, collector, treatment, eggs_laid, eggs_hatched, everything(mosquito_egg_data))
-  # YOUR CODE HERE
-  
+#try 2
+mosquito_egg_data_step1 |>
+  filter(if_any(everything(mosquito_egg_data_step1)) is)
   
   # Verify it worked:
+#did not work, going to try again.
   # [Code to check change happened]
-  
+glimpse(mosquito_egg_data_step1)
   
   # What changed and why it matters:
   # [2-3 sentences explaining consequences]
@@ -62,7 +65,7 @@ mosquito_egg_data_step1 <- mosquito_egg_data |>
   
   
   # FIX 2: [Issue description]  ====
-
+# Dates are in the wrong format()
 # Show the problem:
 # [Code]
 
