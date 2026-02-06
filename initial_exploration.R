@@ -33,10 +33,11 @@ mosquito_egg_raw |>
 # - What biological system is this?
 #   
 # - What's being measured?
-#   
+#   Age and weight of female mosquitos and how many eggs they laid, as well as how many of these hatched
+#   at different sites.
 # - How many observations?
-#   
+#   57
 # - Anything surprising?
-#   
+#   The treatment does not seem to have an effect on eggs laid and how many hatched.
 # - Any obvious problems?
-#
+#   Missing data
