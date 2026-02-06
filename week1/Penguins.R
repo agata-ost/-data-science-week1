@@ -116,3 +116,12 @@ df |>
 week("2017-11-28T14:02:00")
 day("2017-11-28T14:02:00")
 excel_numeric_to_date(42370)
+
+penguins_clean_names |> 
+  summarise(min_date=min(date_egg),
+            max_date=max(date_egg))
+penguins_clean_names <- penguins_clean_names |> 
+  mutate(year = lubridate::year(date_egg))
+# return records after 2008
+penguins_clean_names |>
+  filter(date_egg >= ymd("2008-01-01"))
