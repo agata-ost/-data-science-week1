@@ -27,7 +27,7 @@ mosquito_egg_raw |>
 # Observations ====
 # Your observations (add as comments below):
 # - What biological system is this?
-#   
+#   Not sure.
 # - What's being measured?
 #   Age and weight of female mosquitos and how many eggs they laid, as well as how many of these hatched
 #   at different sites.
@@ -37,3 +37,41 @@ mosquito_egg_raw |>
 #   The treatment does not seem to have an effect on eggs laid and how many hatched.
 # - Any obvious problems?
 #   Missing data
+
+
+# FIX 1: [Issue description] ====
+
+# Show the problem:
+# [Code to demonstrate issue exists]
+
+
+# Fix it:
+mosquito_egg_data_step1 <- mosquito_egg_raw |>
+  # YOUR CODE HERE
+  
+  
+  # Verify it worked:
+  # [Code to check change happened]
+  
+  
+  # What changed and why it matters:
+  # [2-3 sentences explaining consequences]
+  #
+  
+  
+  # FIX 2: [Issue description]  ====
+
+# Show the problem:
+# [Code]
+
+# Fix it:
+mosquito_egg_data_step2 <- mosquito_egg_data_step1 |>
+  # YOUR CODE
+  
+  
+  # Verify it worked:
+  # [Code]
+  
+  # What changed and why it matters:
+  # [2-3 sentences]
+  #
