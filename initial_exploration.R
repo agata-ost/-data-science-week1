@@ -17,7 +17,7 @@ glimpse(mosquito_egg_raw)
 summary(mosquito_egg_raw)
 skim(mosquito_egg_raw)
 #look at table
-view(mosquito_egg_raw)
+view(mosquito_egg_data)
 
 #group data
 mosquito_egg_raw |> 
