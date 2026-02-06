@@ -4,6 +4,7 @@ library(janitor)
 penguins_clean_names <- readRDS(here( "week1", "data", "penguins.RDS"))
 glimpse(penguines_clean_names)
 
+#trim data and clean up names
 str_trim(" Adelie Penguin (Pygoscelis adeliae) ")
 str_trim("  Adelie Penguin (Pygoscelis adeliae)  ", side = "left")
 str_trunc("Adelie Penguin (Pygoscelis adeliae)", width = 18, side = "right")
@@ -11,7 +12,6 @@ str_split("Adelie Penguin (Pygoscelis adeliae)", " ")
 str_c("Adelie", "Penguin", sep = "_")
 penguins_clean_names |>  
   distinct(sex)
-
 penguins_clean_names |> 
   mutate(species = case_when(
     species == "Adelie Penguin (Pygoscelis adeliae)" ~ "Adelie",
@@ -20,12 +20,13 @@ penguins_clean_names |>
     .default = as.character(species)
   )
   )
+#just another way to rename but with stringr
 mdy("10/11/2020")
 penguins_clean_names |> 
   mutate(species = stringr::word(species, 1)
   ) |> 
   mutate(sex = stringr::str_to_title(sex))
-
+#using regex to be able to later describe what we do with stringr
 penguins_clean_names |> 
   separate(
     species,
@@ -33,15 +34,16 @@ penguins_clean_names |>
     sep = "(?=\\()"
   ) 
 
+#look for pattern
 str_detect("Genus specificus", "Genus")
+#filter data 
 penguins_clean_names |> distinct(species)
 
 penguins_clean_names |>
   filter(str_detect(species, "papua")) |>
   select(species)
-
+#remove a pattern
 str_remove("Genus specificus", pattern = "Genus ")
-
 penguins_clean_names |> 
   separate(
     species,
